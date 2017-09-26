@@ -153,6 +153,9 @@ Returns an array with the user's personal data.
 | email | String | User email |
 | name | String | Name |
 | last_name | String | last_name |
+| genfer | String | User gender |
+| ext_id | String | User external code |
+| level_id | Number | User level ID |
 | referrer_user_id  | Number | Referrer |
 | admin_description | Text | Administrator’s notes |
 
@@ -172,7 +175,7 @@ POST `evolution.plus/api/method/user.add`
 | ext_id    | Number | User external code |
 | name    | String | Name |
 | last_name    | String | Last name |
-| photo_url    | String | User photo URL |
+| photo    | String | User photo URL |
 | email    | String | User email |
 | phone    | String | User phone (in any format) |
 
