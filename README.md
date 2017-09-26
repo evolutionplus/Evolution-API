@@ -240,7 +240,7 @@ Progress parameters and user current progress of achievement.
 
 ### Method
 
-POST `evolution.plus/api/method/ achievement.get`
+POST `evolution.plus/api/method/achievement.get`
 
 ### Parameters
 
