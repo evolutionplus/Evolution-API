@@ -205,6 +205,7 @@ POST `evolution.plus/api/method/user.update`
 | photo | String | User photo URL |
 | email | String | User email |
 | phone | String | User phone (in any format) |
+| gender    | String | User gender (M or F) |
 | admin_description | Text | Administrator’s notes |
 
 
