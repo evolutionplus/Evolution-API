@@ -82,7 +82,7 @@ POST `evolution.plus/api/method/action.add`
 
 | Parameter       | Type    | Description               |
 | ------------- | ------- | ------------------------- |
-| user_code    | Number | Evolution+ user ID |
+| user_code    | Number | User external code |
 | action_code   | String | Action type code     |
 | time    | UNIXTIME | Action date and time |
 | value   | Number | Quantity value      |
