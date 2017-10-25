@@ -207,7 +207,7 @@ POST `evolution.plus/api/method/user.update`
 | phone | String | User phone (in any format) |
 | gender    | String | User gender (M or F) |
 | admin_description | Text | Administrator’s notes |
-| rating | String | Publish user rating (Y on N) |
+| rating | String | Publish user rating (Y or N) |
 
 
 ### Result
