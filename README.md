@@ -5,30 +5,30 @@
 * [Add action](#add-action)
 * [Cancel action](#cancel-action)
 * [User](#user)
-* [User adding](#user-adding)
-* [User editing](#user-editing)
-* [Payment transaction](#payment-transaction)
-* [User achievement](#user-achievement)
+* [Add User](#user-adding)
+* [User Update](#user-editing)
+* [Payment Transaction](#payment-transaction)
+* [User Achievement](#user-achievement)
 
 ## Initialization
-To work with the API, initialization is required using the private key and account ID.
+To work with the API, initialization is required using the private key and account ID. This information can be obtained from the control panel.
 
 ### Method
 
 POST `evolution.plus/api/access_token`
 
-### Parameters
+### Initialization Params
 
-| Parameter       | Type    | Description               |
+| Field         | Type    | Description               |
 | ------------- | ------- | ------------------------- |
 | account_id    | Number  | Evolution+ account ID |
 | secret_code   | String  | Evolution+ secret code     |
 
 ### Result
 
-Returns an array with an authorization token and token lifetime (60 minutes). The authorization token should be specified in all subsequent methods. 
+Returns an array with an authorization token and token lifetime (60 minutes)  The authorization token should be specified in all subsequent methods. 
 
-| Parameter       | Type    | Description               |
+| Field         | Type    | Description               |
 | ------------- | ------- | ------------------------- |
 | access_token  | String  | Authorization token       |
 | timelife      | Number  | Token lifetime, seconds   |
@@ -45,9 +45,9 @@ Getting a list of user actions according to the specified parameters.
 
 POST `evolution.plus/api/method/action.get`
 
-### Parameters
+### Actions Params
 
-| Parameter       | Type    | Description               |
+| Field       | Type    | Description               |
 | ------------- | ------- | ------------------------- |
 | date1    | UNIXTIME  | Data selection start date |
 | date2   | UNIXTIME  | Data selection end date     |
@@ -56,11 +56,11 @@ POST `evolution.plus/api/method/action.get`
 | ext_id    | String  | Action external code |
 | user_id   | Number  | User ID     |
 
-### Result
+### Actions Result
 
 Returns an array of actions according to the specified data selection parameters.  
 
-| Parameter       | Type    | Description               |
+| Field       | Type    | Description               |
 | ------------- | ------- | ------------------------- |
 | id  | Number  | Action ID       |
 | ext_id      | String  | Action external code   |
@@ -71,16 +71,16 @@ Returns an array of actions according to the specified data selection parameters
 
 ***
 
-## Add action
+## Add Action
 User action registering in accordance with the list of action types specified in the platform settings. You must specify the user ID or his hash code, as well as the action type code.
 
 ### Method
 
 POST `evolution.plus/api/method/action.add`
 
-### Parameters
+### Params
 
-| Parameter       | Type    | Description               |
+| Field       | Type    | Description               |
 | ------------- | ------- | ------------------------- |
 | user_code    | Number | User external code |
 | action_code   | String | Action type code     |
@@ -106,9 +106,9 @@ User actions deletion is executed by external code EXT_ID. All awards associated
 
 POST `evolution.plus/api/method/action.undo`
 
-### Parameters
+### Params
 
-| Parameter       | Type    | Description               |
+| Field        | Type    | Description               |
 | ------------- | ------- | ------------------------- |
 | ext_id    | String | Action external code |
 
@@ -117,7 +117,7 @@ POST `evolution.plus/api/method/action.undo`
 
 Returns the number of found actions with the code ext_id.
 
-| Parameter       | Type    | Description               |
+| Field       | Type    | Description               |
 | ------------- | ------- | ------------------------- |
 | actions  | Number | Number of actions to be deleted |
 
@@ -131,9 +131,9 @@ Receiving the user's personal data according to specified parameters. One of the
 
 POST `evolution.plus/api/method/user.get`
 
-### Parameters
+### User Params
 
-| Parameter       | Type    | Description               |
+| Field       | Type    | Description               |
 | ------------- | ------- | ------------------------- |
 | ext_id    | String | User external code |
 | id    | Number | User ID |
@@ -145,7 +145,7 @@ POST `evolution.plus/api/method/user.get`
 
 Returns an array with the user's personal data.
 
-| Parameter       | Type    | Description               |
+| Field         | Type    | Description               |
 | ------------- | ------- | ------------------------- |
 | id  | Number | User ID |
 | hash  | String | User hash code |
@@ -161,16 +161,16 @@ Returns an array with the user's personal data.
 
 ***
 
-## User adding
-A new user creation in the platform. A username must be specified.
+## Add User
+A new user adding in the platform. A username is required.
 
 ### Method
 
 POST `evolution.plus/api/method/user.add`
 
-### Parameters
+### User Params
 
-| Parameter       | Type    | Description               |
+| Field         | Type    | Description               |
 | ------------- | ------- | ------------------------- |
 | ext_id    | Number | User external code |
 | name    | String | Name |
@@ -194,9 +194,9 @@ Editing user data. User external code or user ID must be specified.
 
 POST `evolution.plus/api/method/user.update`
 
-### Parameters
+### User Params
 
-| Parameter       | Type    | Description               |
+| Field       | Type    | Description               |
 | ------------- | ------- | ------------------------- |
 | ext_id    | String | User external code |
 | id    | Number | User ID |
@@ -214,18 +214,23 @@ POST `evolution.plus/api/method/user.update`
 
 If the user is successfully edited, his ID to be returned.
 
+| Field       | Type    | Description               |
+| ------------- | ------- | ------------------------- |
+| ID    | Number | User ID |
+
+
 ***
 
-## Payment transaction
-Adding a new user payment transaction. While debiting, a negative transaction amount is indicated.
+## Payment Transaction
+Adding a new user payment transaction.
 
 ### Method
 
 POST `evolution.plus/api/method/money.add`
 
-### Parameters
+### Transaction Params
 
-| Parameter       | Type    | Description               |
+| Field       | Type    | Description               |
 | ------------- | ------- | ------------------------- |
 | money    | Number | Transaction amount |
 | user_id    | Number | User ID |
@@ -238,16 +243,16 @@ If the transaction is successfully added, "OK" to be returned.
 
 ***
 
-## User achievement
+## User Achievement
 Progress parameters and user current progress of achievement.
 
 ### Method
 
 POST `evolution.plus/api/method/achievement.get`
 
-### Parameters
+### Achievement Params
 
-| Parameter       | Type    | Description               |
+| Field       | Type    | Description               |
 | ------------- | ------- | ------------------------- |
 | user_id    | Number | User ID |
 | id    | Number | Achievement ID |
@@ -257,7 +262,7 @@ POST `evolution.plus/api/method/achievement.get`
 
 Returns an array with the achievement parameters and the current progress.
 
-| Parameter       | Type    | Description               |
+| Field       | Type    | Description               |
 | ------------- | ------- | ------------------------- |
 | id  | Number | Achievement ID |
 | name | String | Achievement title |
