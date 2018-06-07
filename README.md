@@ -26,7 +26,7 @@ POST `evolution.plus/api/access_token`
 
 ### Result
 
-Returns an array with an authorization token and token lifetime (60 minutes)  The authorization token should be specified in all subsequent methods. 
+Returns an array with an authorization token and token lifetime (60 minutes).  The authorization token should be specified in all subsequent methods. 
 
 | Field         | Type    | Description               |
 | ------------- | ------- | ------------------------- |
@@ -49,11 +49,11 @@ POST `evolution.plus/api/method/action.get`
 
 | Field       | Type    | Description               |
 | ------------- | ------- | ------------------------- |
-| date1    | UNIXTIME  | Data selection start date |
-| date2   | UNIXTIME  | Data selection end date     |
+| date1    | UNIXTIME  | Start date |
+| date2   | UNIXTIME  | End date     |
 | id    | Number  | Action ID |
 | event_code   | String  | Action type code     |
-| ext_id    | String  | Action external code |
+| ext_id    | String  | External code of the action |
 | user_id   | Number  | User ID     |
 
 ### Actions Result
@@ -63,7 +63,7 @@ Returns an array of actions according to the specified data selection parameters
 | Field       | Type    | Description               |
 | ------------- | ------- | ------------------------- |
 | id  | Number  | Action ID       |
-| ext_id      | String  | Action external code   |
+| ext_id      | String  | External code of the action   |
 | code  | String  | Action type code       |
 | name      | String  | Action name  |
 | date  | Date/Time  | Action date and time       |
@@ -86,12 +86,12 @@ POST `evolution.plus/api/method/action.add`
 | action_code   | String | Action type code     |
 | time    | UNIXTIME | Action date and time |
 | value   | Number | Quantity value      |
-| ext_id    | String | Action external code |
+| ext_id    | String | External code of the action |
 | hash   | String | User hash code     |
 
 ### Result
 
-If the action is successfully added, its ID to be returned. 
+If the action is successfully added, its ID to be returned.
 
 | Parameter       | Type    | Description               |
 | ------------- | ------- | ------------------------- |
@@ -100,7 +100,7 @@ If the action is successfully added, its ID to be returned.
 ***
 
 ## Cancel action
-User actions deletion is executed by external code EXT_ID. All awards associated with actions are also to be deleted.
+User actions deletion is executed by external code ext_id. All awards associated with the actions are also to be deleted.
 
 ### Method
 
@@ -110,7 +110,7 @@ POST `evolution.plus/api/method/action.undo`
 
 | Field        | Type    | Description               |
 | ------------- | ------- | ------------------------- |
-| ext_id    | String | Action external code |
+| ext_id    | String | External action code |
 
 
 ### Result
@@ -185,10 +185,14 @@ POST `evolution.plus/api/method/user.add`
 
 If the user is successfully added, his ID to be returned.
 
+| Field         | Type    | Description               |
+| ------------- | ------- | ------------------------- |
+| ID    | Number | User ID |
+
 ***
 
-## User editing
-Editing user data. User external code or user ID must be specified.
+## User Update
+Updating user data. User external code or user ID must be specified.
 
 ### Method
 
@@ -244,7 +248,7 @@ If the transaction is successfully added, "OK" to be returned.
 ***
 
 ## User Achievement
-Progress parameters and user current progress of achievement.
+Achievement parameters and user current progress of achievement.
 
 ### Method
 
